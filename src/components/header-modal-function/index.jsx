@@ -1,6 +1,36 @@
 import React from 'react';
-import './modal.css';
-import ModalSequencia from '../Modais/ModalSequencia';
+import styled from 'styled-components';
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+
+  @media (min-width: 725px) {
+    top: 5rem;
+    right: 0;
+    justify-content: center;
+  }
+`;
+
+const ModalContent = styled.div`
+  position: relative;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 0.25rem;
+  width: 340px;
+  height: 240px;
+  margin-bottom: 14rem;
+
+
+  @media (min-width: 725px) {
+    width: 400px;
+    height: 280px;
+  }
+`;
 
 export default function Modal({ iconName, closeModal }) {
     const getContent = () => {
@@ -17,10 +47,10 @@ export default function Modal({ iconName, closeModal }) {
     };
 
     return (
-        <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-content close" onClick={(evento) => evento.stopPropagation()}>
+        <ModalOverlay onClick={closeModal}>
+            <ModalContent className="close" onClick={(evento) => evento.stopPropagation()}>
                 {getContent()}
-            </div>
-        </div>
+            </ModalContent>
+        </ModalOverlay>
     );
 }

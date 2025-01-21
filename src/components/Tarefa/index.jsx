@@ -6,38 +6,45 @@ const TarefaContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 80px;
-    font-family: var(--fonte);
-    border: 3px solid ${(props) => props.$cor}; //recebe a cor da borda via props dinamicamente
+    height: 60px;
+    border: 3px solid ${(props) => props.theme[props.$cor]}; //recebe a cor da borda via props dinamicamente
     border-radius: 0.625rem;
     padding: 0 1.25rem 0 1.25rem;
-    @media screen and (min-width: 1024px){
+    align-items: center;
+    @media screen and (max-width: 1024px) {
         height: 70px;
-        align-items: center;
-        padding: 0 1.75rem 0 1.75rem;
+    }
+    @media screen and (max-width: 768px) {
+        height: 60px;
     }
 `
 const CheckboxContainer = styled.div`
     font-size: 1.25rem;
     font-weight: bold;
-    color: var(--light-blue);
+    color: ${props => props.theme['--details']};
     display: flex;
     justify-content: flex-end;
-    @media screen and (min-width: 1024px){
+    @media screen and (max-width: 1024px){
         font-size: 1.5rem;
         align-items: center;
     }
+    @media screen and (max-width: 768px) {
+        font-size: 1rem;
+    }
 `
 const TarefaCategoria = styled.p`
-color: ${(props) => props.$cor};
+color: ${(props) => props.theme[props.$cor]};
     font-size: 1.25rem;
     font-weight: bold;
     display: flex;
     justify-content: flex-start;
     border: none;
-    @media screen and (min-width: 1024px){
+    align-items: center;
+    @media screen and (max-width: 1024px){
         font-size: 1.5rem;
-        align-items: center;
+    }
+    @media screen and (max-width: 768px) {
+        font-size: 1rem;
     }
 `
 const ContainerTempo = styled(TarefaCategoria)`

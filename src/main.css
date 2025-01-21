@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
 
 :root{
-  --bg-color-light: #FBFEF7;
-  --dark-blue: #2FAEBF;
-  --light-blue: #BEF7FF;
-  --bg-color-dark: #1A364A;
-  --light-blue-bg: #E8FCFF;
-  --destaque: #F3712D;
-  --texto-escuro: #5A6771;
-  --texto-claro: #FFFFFF;
-  --fundo-modal: #0B3553;
-  --fundo-input-form: #274B64;
-  --azul-saturado: #0087E8;
-  --roxo-destaque: #8C54E6;
-  --fundo-modal-dias: #081B29;
   --fonte: "Zen Maru Gothic", serif;
+  --bg-color: #1A364A;
+    --text-color: #FFFFFF;
+    --header-bg: #2FAEBF;
+    --details: #BEF7FF;
+    --fundo-modal: #0B3553;
+    --fundo-input-form: #FBFEF7;
+    --button-bg: #2FAEBF;
+    --button-hover: #BEF7FF;
+    --destaque: #F3712D;
+    --fundo-modal-dias:#081B29;
+    --azul-saturado: #0087E8;
+    --roxo-destaque: #8C54E6;
+    --tag-clara: #ffffff;
 }
 
 * {

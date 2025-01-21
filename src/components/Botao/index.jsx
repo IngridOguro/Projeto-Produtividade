@@ -3,14 +3,14 @@ import styled from 'styled-components';
 const BotaoPadrao = styled.button`
     width: 100%;
     max-width: 580px;
-    height: 3rem;
-    border: 2px solid var(--dark-blue);
+    height: 4rem;
+    border: 2px solid ${props => props.theme['--button-bg']};
     outline: none;
     border-radius: 10px;
-    background-color: var(--dark-blue);
-    font-size: 2rem;
+    background-color: ${props => props.theme['--button-bg']};
+    font-size: 2.25rem;
     font-weight: bold;
-    color: var(--texto-claro);
+    color: #ffffff;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     cursor: pointer;
     position: relative;
@@ -19,18 +19,23 @@ const BotaoPadrao = styled.button`
     justify-content: center;
     z-index: 0;
     &:hover {
-        background-color: var(--light-blue);
-        color: var(--dark-blue);
-        border-color: var(--light-blue);
+        background-color: ${props => props.theme['--button-hover']};
+        color: ${props => props.theme['--button-bg']};
+        border-color: ${props => props.theme['--button-hover']};
     }
     &:disabled {
         opacity: 0.6;
         cursor: not-allowed;
     }
+    @media screen and (max-width: 768px) {
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+
 `
 
-export default function Botao({children}) {
+export default function Botao({onClick ,children}) {
     return (
-        <BotaoPadrao>{children}</BotaoPadrao>
+        <BotaoPadrao onClick={onClick}>{children}</BotaoPadrao>
     )
 }
