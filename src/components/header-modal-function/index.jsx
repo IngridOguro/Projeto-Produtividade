@@ -1,13 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import ModalEvolucao from '../ModalEvolucao';
+import { keyframes } from 'styled-components'
+
+const breatheAnimation = keyframes`
+ 0% { top: -30%;}
+100% { top: 0%; }
+`
 
 const ModalOverlay = styled.div`
   position: fixed;
-  top: 4rem;
+  width:100vw;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end !important;
+  padding-right: 5vw;
 
   @media (min-width: 725px) {
     top: 5rem;
@@ -21,16 +28,13 @@ const ModalContent = styled.div`
   background-color: #000000;
   color: #ffffff;
   border-radius: 0.25rem;
-  width: 340px;
-  height: 240px;
   margin-bottom: 14rem;
-
-
-  @media (min-width: 725px) {
-    width: 400px;
-    height: 280px;
-  }
-`;
+  width:auto;
+  height:auto;
+  border-radius: 15px; 
+  animation-name: ${breatheAnimation};
+ animation-duration: 0.5s;
+  `;
 
 export default function Modal({ iconName, closeModal }) {
     const getContent = () => {
@@ -40,7 +44,7 @@ export default function Modal({ iconName, closeModal }) {
             case 'sequence':
                 return <p>Conteúdo do modal de sequência</p>;
             case 'pet':
-                return <p>Conteúdo do modal do pet</p>;
+                return <ModalEvolucao></ModalEvolucao>;
             case 'energy':
                 return <p>Conteúdo do modal de energia</p>;
         }
