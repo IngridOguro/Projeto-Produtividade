@@ -34,7 +34,7 @@ const ModalContent = styled.div`
   height:auto;
   border-radius: 15px; 
   animation-name: ${breatheAnimation};
- animation-duration: 0.5s;
+  animation-duration: 0.5s;
   `;
 
 export default function Modal({ iconName, closeModal }) {
