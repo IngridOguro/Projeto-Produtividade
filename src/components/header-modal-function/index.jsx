@@ -12,15 +12,16 @@ const ModalOverlay = styled.div`
   position: fixed;
   width:100vw;
   display: flex;
-  align-items: center;
+  align-items: center !important;
   justify-content: flex-end !important;
   padding-right: 5vw;
-
-  @media (min-width: 725px) {
-    top: 5rem;
+      top: 5rem;
     right: 0;
-    justify-content: center;
+
+  @media (max-width: 1024px) {
+    justify-content: center !important;
   }
+  
 `;
 
 const ModalContent = styled.div`
