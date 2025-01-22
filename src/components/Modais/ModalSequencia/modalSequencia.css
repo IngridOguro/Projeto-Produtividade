@@ -1,6 +1,4 @@
 .modal_container {
-    width: 500px;
-    height: 406px;
     padding: 1rem;
     border-radius: 15px;
     background-color: var(--fundo-modal);
@@ -15,11 +13,8 @@
 }
 
 .modal_content h1 {
-    width: 421px;
-    height: 68px;
     font-weight: 900;
-    font-size: 48px;
-    line-height: 69.5px;
+    font-size: 1.5rem;
     text-align: center;
     color: var(--texto-claro);
 }
@@ -39,11 +34,11 @@ strong {
 }
 
 .week_days {
-    width: 41px;
-    height: 41px;
+    width: 2.5rem;
+    height: 2.5rem;
     align-content: center;
     text-align: center;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 900;
     color: var(--texto-claro);
     background-color: var(--fundo-modal);
@@ -62,8 +57,8 @@ strong {
 }
 
 .content_img {
-    width: 250px;
-    height: 250px;
+    width: 15rem;
+    height: 15rem;
     padding: 1rem 1rem 0 1rem;
 }
 
@@ -73,8 +68,8 @@ strong {
 }
 
 .content_text {
-    width: 250px;
-    height: 250px;
+    width: 15rem;
+    height: 15rem;
     padding: 1rem 1rem 0 1rem;
 }
 
@@ -83,8 +78,7 @@ strong {
     height: 100%;
     margin: 1rem;
     font-weight: 500;
-    font-size: 24px;
-    line-height: 35px;
+    font-size: 1.5rem;
     flex-wrap: wrap;
     color: var(--texto-claro);
 }

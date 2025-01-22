@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ModalSequencia from '../Modais/ModalSequencia';
 
 const ModalOverlay = styled.div`
   position: fixed;
