@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ModalEvolucao from '../ModalEvolucao';
 import { keyframes } from 'styled-components'
+import ModalSequencia from '../Modais/ModalSequencia';
 
 const breatheAnimation = keyframes`
  0% { top: -30%;}
