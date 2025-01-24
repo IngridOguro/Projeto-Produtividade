@@ -2,7 +2,7 @@ import trophy from '/imagens-svg/trofeus.svg'
 import styled from 'styled-components';
 
 const ModalContainer = styled.div`
-    width: 40vw;
+    width: 35vw;
     height: 45vh;
     padding: 1rem;
     display: flex;
@@ -16,11 +16,15 @@ const ModalContainer = styled.div`
         font-weight: 900;
         font-size: 3vw;
         text-align: center;
-        color: ${props => props.theme['--texto-claro']};
+        color: ${props => props.theme['--text-color']};
     }
 
     strong {
         color: ${props => props.theme['--destaque']};
+    }
+
+    @media (max-width: 1440px) {
+        width: 45vw;
     }
 
     @media (max-width: 1024px) {
@@ -28,8 +32,17 @@ const ModalContainer = styled.div`
         height: 30vh;
     }
 
-    @media (max-width: 847px) {
+    @media (max-width: 426px) {
         width: 80vw;
+        height: 25vh;
+
+        h1 {
+            font-size: 7vw;
+        }
+    }
+
+    @media (max-width: 376px) {
+        height: 20vh;
     }
 `
 
@@ -42,22 +55,39 @@ const WeekContainer = styled.div`
     justify-content: space-evenly;
     align-items: center;
     background-color: ${props => props.theme['--fundo-modal-dias']};
+
+    @media (max-width: 376px) {
+        height: 30%;
+    }
 `
 
 const WeekDays = styled.p`
     width: 4vw;
-    height: 5vh;
+    height: 6vh;
     align-content: center;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-weight: 900;
-    color: ${props => props.theme['--texto-claro']};
+    color: ${props => props.theme['--text-color']};
     background-color: ${(props) => (props.highlight ? props.theme['--destaque'] : props.theme['--fundo-modal'])};
     border-radius: 5px;
 
     @media (max-width: 1024px) {
         height: 4vh;
         font-size: 3vw;
+    }
+
+    @media (max-width: 768px) {
+        height: 3vh;
+    }
+    
+    @media (max-width: 426px) {
+        width: 7vw;
+        font-size: 4vw;
+    }
+
+    @media (max-width: 376px) {
+        height: 2vh;
     }
 `
 
@@ -72,6 +102,10 @@ const ModalBottomContainer = styled.div`
     @media (max-width: 1024px) {
         gap: 1rem;
     }
+
+    @media (max-width: 376px) {
+        margin-top: 0;
+    }
 `
 
 const BottomSectionWrapper = styled.div`
@@ -82,9 +116,25 @@ const BottomSectionWrapper = styled.div`
     p {
         margin: 1rem;
         font-weight: 500;
-        font-size: 2vw;
+        font-size: 1.5vw;
         flex-wrap: wrap;
-        color: ${props => props.theme['--texto-claro']};
+        color: ${props => props.theme['--text-color']};
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    @media (max-width: 1440px) {
+        p {
+            font-size: 2vw;
+        }
+    }
+
+    @media (max-width: 426px) {
+        p {
+            font-size: 3.5vw;
+        }
     }
 `
 
