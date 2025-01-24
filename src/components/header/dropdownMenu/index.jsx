@@ -9,7 +9,7 @@ export default function DropdownMenu() {
       <ModalUser>
         <ModalUserList>
           <MenuItem>
-            <StyledLink to="/Cadastro"> Usuario </StyledLink>
+            <StyledLink to="/Usuario"> Usuário </StyledLink>
           </MenuItem>
           <MenuItem>
             <StyledLink to="/historico"> Histórico </StyledLink>
