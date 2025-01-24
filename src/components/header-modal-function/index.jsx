@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ModalEvolucao from '../ModalEvolucao';
 import { keyframes } from 'styled-components'
+import ModalSequencia from '../Modais/ModalSequencia';
 
 const breatheAnimation = keyframes`
  0% { top: -30%;}
@@ -43,7 +44,7 @@ export default function Modal({ iconName, closeModal }) {
             case 'task':
                 return <p>Conteúdo do modal de tarefas</p>;
             case 'sequence':
-                return <p>Conteúdo do modal de sequência</p>;
+                return <ModalSequencia />;
             case 'pet':
                 return <ModalEvolucao></ModalEvolucao>;
             case 'energy':
