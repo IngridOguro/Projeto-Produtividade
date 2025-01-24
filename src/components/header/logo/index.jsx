@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom';
 import sQpetsLogo from '/imagens-svg/sQpets.svg';
 import styled from 'styled-components';
 
 export default function Logo() {
-  return <LogoImage src={sQpetsLogo} alt="logo"/>
+  return (
+    <Link to="/">
+      <LogoImage src={sQpetsLogo} alt="logo" />
+    </Link>
+  )
 }
 
 const LogoImage = styled.img`

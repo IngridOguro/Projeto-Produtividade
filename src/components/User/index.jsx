@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import userAvatar from '/imagens-svg/user.svg';
 import styled from 'styled-components';
+import DropdownMenu from '../header/dropdownMenu';
 
 export default function User() {
   const [activeModal, setActiveModal] = useState(null);
@@ -20,16 +21,7 @@ export default function User() {
           <img src={userAvatar} alt="imagem do usuário" onClick={() => handleClick('user')} />
           {activeModal && (
             <>
-              <ModalUser>
-                <ModalUserList>
-                  <span>Perfil</span>
-                  <span>Histórco</span>
-                  <span>Tema</span>
-                  <span>Sobre</span>
-                  <span>Sair</span>
-                </ModalUserList>
-              </ModalUser>
-
+              <DropdownMenu/>
               <Close onClick={closeModal}></Close>
             </>
           )}
@@ -51,30 +43,6 @@ const UserCircleAnimated = styled.div`
 
 const UserPhoto = styled.div`
   object-fit: contain;
-`;
-
-const ModalUser = styled.div`
-  position: relative;
-  background-color: #e4e4e4;
-  border-radius: 0.25rem;
-  width: 120px;
-  height: 200px;
-  top: 0.5rem;
-  right: 3rem;
-  z-index: 2;
-`;
-
-const ModalUserList = styled.ul`
-  font-size: 1.2rem;
-  display: grid;
-  grid-column: 1fr;
-  justify-content: center;
-  padding: 0.5em;
-  font-family: var(--fonte);
-`;
-
-const ModalUserListItem = styled.span`
-  cursor: pointer;
 `;
 
 const Close = styled.span`
