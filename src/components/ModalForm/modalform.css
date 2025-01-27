@@ -1,0 +1,39 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form_container {
+    background: #0B3553;
+    border-radius: 8px;
+    padding: 20px;
+    width: 600px;
+    height: 600px;
+    border: 4px solid #87C7CF;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_tarefa {
+    height: auto;
+}
+
+.form input {
+    height: auto;
+    border-radius: 6px;
+    padding: 16px;
+}

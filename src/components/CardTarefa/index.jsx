@@ -83,17 +83,7 @@ const CardButton = styled.div`
 
 export default function CardTarefa() {
 
-    useEffect((idUser) => {
-        axios.get(`http://localhost:5175/api/tarefa${idUser}`)
-            .then(resposta => {
-                console.log(resposta);
-                
-            })
-            .catch(erro => {
-                console.log(erro);
-                
-            })
-    }, [])
+    
 
     return (
         <CardContainer>
@@ -117,3 +107,15 @@ export default function CardTarefa() {
         </CardContainer>
     )
 }
+
+// useEffect((idUser) => {
+//     axios.get(`http://localhost:5175/api/tarefa${idUser}`)
+//         .then(resposta => {
+//             console.log(resposta);
+            
+//         })
+//         .catch(erro => {
+//             console.log(erro);
+            
+//         })
+// }, [])
