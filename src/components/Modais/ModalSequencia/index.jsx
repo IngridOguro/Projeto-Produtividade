@@ -2,8 +2,9 @@ import trophy from '/imagens-svg/trofeus.svg'
 import styled from 'styled-components';
 
 const ModalContainer = styled.div`
-    width: 35vw;
-    height: 45vh;
+    width: 85vw;
+    max-width: 600px;
+    height: auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -12,9 +13,8 @@ const ModalContainer = styled.div`
     background-color: ${props => props.theme['--fundo-modal']};
 
     h1 {
-        height: auto;
         font-weight: 900;
-        font-size: 3vw;
+        font-size: 1.5rem;
         text-align: center;
         color: ${props => props.theme['--text-color']};
     }
@@ -23,101 +23,81 @@ const ModalContainer = styled.div`
         color: ${props => props.theme['--destaque']};
     }
 
-    @media (max-width: 1440px) {
-        width: 45vw;
-    }
-
-    @media (max-width: 1024px) {
-        width: 50vw;
-        height: 30vh;
-    }
-
-    @media (max-width: 426px) {
-        width: 80vw;
-        height: 25vh;
-
+    @media (min-width: 768px) {
+        width: 100%;
         h1 {
-            font-size: 7vw;
+            font-size: 2rem;
         }
     }
 
-    @media (max-width: 376px) {
-        height: 20vh;
+    @media (min-width: 1024px) {
+        width: 40vw;
+        h1 {
+            font-size: 2.5rem;
+        }
     }
 `
 
 const WeekContainer = styled.div`
     width: 100%;
-    height: 25%;
+    height: auto;
     margin-top: 1rem;
+    padding: 0.5rem;
     border-radius: 15px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background-color: ${props => props.theme['--fundo-modal-dias']};
 
-    @media (max-width: 376px) {
-        height: 30%;
+    @media (max-width: 768px) {
+        padding: 0.5rem;
     }
 `
 
 const WeekDays = styled.p`
-    width: 4vw;
-    height: 6vh;
-    align-content: center;
-    text-align: center;
-    font-size: 2vw;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
     font-weight: 900;
     color: ${props => props.theme['--text-color']};
     background-color: ${(props) => (props.highlight ? props.theme['--destaque'] : props.theme['--fundo-modal'])};
     border-radius: 5px;
 
-    @media (max-width: 1024px) {
-        height: 4vh;
-        font-size: 3vw;
-    }
-
     @media (max-width: 768px) {
-        height: 3vh;
-    }
-    
-    @media (max-width: 426px) {
-        width: 7vw;
-        font-size: 4vw;
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
     }
 
-    @media (max-width: 376px) {
-        height: 2vh;
+    @media (max-width: 426px) {
+        width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
     }
 `
 
 const ModalBottomContainer = styled.div`
     width: 100%;
-    height: 50%;
-    margin-top: 1vw;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
 
-    @media (max-width: 1024px) {
-        gap: 1rem;
-    }
-
-    @media (max-width: 376px) {
-        margin-top: 0;
+    @media (min-width: 768px) {
+        gap: 2rem;
+        align-items: center;
     }
 `
 
 const BottomSectionWrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    padding: 1rem 1rem 0 1rem;
+    flex: 1;
+    text-align: center;
 
     p {
-        margin: 1rem;
-        font-weight: 500;
-        font-size: 1.5vw;
-        flex-wrap: wrap;
+        font-size: 1rem;
         color: ${props => props.theme['--text-color']};
     }
 
@@ -125,15 +105,21 @@ const BottomSectionWrapper = styled.div`
         font-weight: 700;
     }
 
-    @media (max-width: 1440px) {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media (min-width: 768px) {
         p {
-            font-size: 2vw;
+            padding: 1rem;
+            font-size: 1.2rem;
         }
     }
 
-    @media (max-width: 426px) {
+    @media (min-width: 1440px) {
         p {
-            font-size: 3.5vw;
+            font-size: 1.5rem;
         }
     }
 `
