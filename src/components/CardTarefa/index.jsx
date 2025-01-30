@@ -81,14 +81,14 @@ const CardButton = styled.div`
 `
 
 
-export default function CardTarefa({idUsuario}) {
+export default function CardTarefa({}) {
 
     const [tarefas, seTarefas] = useState([]);
 
     useEffect(() => {
         const carregarTarefas = async() => {
             try {
-                const resposta = await fetch(`https://sqpets-backend.onrender.com/api/tarefa/${idUsuario}`);
+                const resposta = await fetch(`https://sqpets-backend.onrender.com/api/tarefa/e1b7f8a6-12e7-4a7e-b6d3-021d676d9a68`);
                 if(resposta.ok) {
                     const dados = await resposta.json();
                     seTarefas(dados);
@@ -99,7 +99,7 @@ export default function CardTarefa({idUsuario}) {
         }
 
         carregarTarefas();
-    },[idUsuario]);
+    },[]);
     
 
     return (

@@ -1,22 +1,15 @@
 import PetImage from '/imagens-svg/aside-imagem.svg';
 import Botao from '../Botao';
 import './pet.css'
-
 import ModalForm from '../ModalForm'
-
 import { useEffect, useState } from 'react';
-import CardTarefa from '../CardTarefa';
-
-// function criarTarefa () {
-    
-// }
 
 export default function Pet () {
 
     
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [tarefas, setTarefas] = useState([]);
-    
+
     const criarTarefa = () => {
         setIsModalOpen(true)
 
@@ -26,12 +19,22 @@ export default function Pet () {
         setIsModalOpen(false)
     }
 
+    //com o e1b7f8a6-12e7-4a7e-b6d3-021d676d9a68 = erro 405
+    //sem ele: erro 400
+
     const enviarTarefa = async(novaTarefa) => {
+        console.log("tarefa:",novaTarefa);
+        
         try {
-            const resposta = await fetch('https://sqpets-backend.onrender.com/api/tarefa/e1b7f8a6-12e7-4a7e-b6d3-021d676d9a68',{
+            const resposta = await fetch('https://sqpets-backend.onrender.com/api/tarefa/',{
                 method: 'POST',
                 headers: { 'Content-type': 'application/json'},
-                body: JSON.stringify(novaTarefa)
+                body: JSON.stringify({
+                    nome: novaTarefa.nome,
+                    tempo: novaTarefa.tempo,
+                    idUsuario: novaTarefa.idUsuario,
+                    idCategoria: novaTarefa.idCategoria
+                })
             });
 
             if(resposta.ok) {
@@ -48,25 +51,7 @@ export default function Pet () {
         <div className='pet_container'>
             <img src={PetImage}/>
             <Botao onClick={criarTarefa} >Criar Tarefa</Botao>
-            { isModalOpen && <ModalForm onSubmit={enviarTarefa} onClose={fecharModal} /> }
+            { isModalOpen && <ModalForm onSubmit={enviarTarefa} onclose={fecharModal} /> }
         </div>
     )
 }
-
-// axios.post('http://localhost:5175/api/tarefa', {
-//     nome: "Lucas 2",
-//     tempo: 20,
-//     idUsuario: "e1b7f8a6-12e7-4a7e-b6d3-021d676d9a681",
-//     idCategoria: "861fd8de-416a-492f-b2fc-82b6bcef6991"
-// },{
-//     headers: {
-//         'Content-Type':'application/json'
-//     }
-// })
-//     .then((resposta) => {
-//         console.log(resposta);
-//     })
-//     .catch((erro) => {
-//         console.error('Erro ao criar tarefa:', erro.response?.data || erro.message);
-        
-//     })
