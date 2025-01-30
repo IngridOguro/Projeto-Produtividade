@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Botao from "../Botao";
 import Tarefa from "../Tarefa";
 import ToLink from "../ToLink";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 //import './cardTarefa.css';
@@ -81,8 +81,25 @@ const CardButton = styled.div`
 `
 
 
-export default function CardTarefa({tarefas}) {
+export default function CardTarefa({idUsuario}) {
 
+    const [tarefas, seTarefas] = useState([]);
+
+    useEffect(() => {
+        const carregarTarefas = async() => {
+            try {
+                const resposta = await fetch(`https://sqpets-backend.onrender.com/api/tarefa/${idUsuario}`);
+                if(resposta.ok) {
+                    const dados = await resposta.json();
+                    seTarefas(dados);
+                }
+            } catch(error) {
+                console.log(error);
+            }
+        }
+
+        carregarTarefas();
+    },[idUsuario]);
     
 
     return (
@@ -90,7 +107,8 @@ export default function CardTarefa({tarefas}) {
             <CardContent>
             <TituloCard>Tarefas de hoje</TituloCard>
                 <ContentTasks>
-                    {tarefas.map((tarefa) => (
+                    
+                    {tarefas.length > 0 ? (tarefas.map((tarefa) => (
                         <Tarefa
                             key={tarefa._id}
                             textLabel={tarefa.nome}
@@ -98,7 +116,9 @@ export default function CardTarefa({tarefas}) {
                             tempo={tarefa.tempo}
                             cor={'--details'}
                         />
-                    ))
+                    ))) : (
+                        <p>Sem tarefas cadastradas</p>
+                    )
                     }
                     
                     {/* <Tarefa textLabel={"Curso JS"} name={"tarefa_1"} tag={"programação"} tempo={"01:00"} cor={'--details'}/>
