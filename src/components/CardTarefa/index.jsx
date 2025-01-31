@@ -13,13 +13,13 @@ const CardContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;    
-    height: auto;
     padding: 1.25rem 0 2rem 0;
     border: 4px solid #87C7CF;
     border-radius: 10px;
     background-color: ${props => props.theme['--fundo-modal']};
     box-sizing: border-box;
     text-align: center;
+
     @media screen and (max-width: 768px) {
         padding: 1rem;
         margin-bottom: 3rem;
@@ -59,6 +59,7 @@ const ContentTasks = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1.25rem;
+    overflow: scroll;
 `
 const Historico = styled.div`
     text-align: right;
@@ -91,7 +92,7 @@ export default function CardTarefa({}) {
                 const resposta = await fetch(`https://sqpets-backend.onrender.com/api/tarefa/e1b7f8a6-12e7-4a7e-b6d3-021d676d9a68`);
                 if(resposta.ok) {
                     const dados = await resposta.json();
-                    seTarefas(dados);
+                    seTarefas(dados.data);
                 }
             } catch(error) {
                 console.log(error);
@@ -110,7 +111,7 @@ export default function CardTarefa({}) {
                     
                     {tarefas.length > 0 ? (tarefas.map((tarefa) => (
                         <Tarefa
-                            key={tarefa._id}
+                            key={tarefa.idTarefa}
                             textLabel={tarefa.nome}
                             tag={tarefa.idCategoria}
                             tempo={tarefa.tempo}
