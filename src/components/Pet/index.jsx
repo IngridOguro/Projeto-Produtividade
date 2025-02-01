@@ -2,6 +2,7 @@ import PetImage from '/imagens-svg/aside-imagem.svg';
 import Botao from '../Botao';
 import './pet.css'
 import ModalForm from '../ModalForm'
+import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 
 export default function Pet () {
@@ -54,7 +55,19 @@ export default function Pet () {
             <img src={PetImage}/>
             <Botao onClick={criarTarefa} >Criar Tarefa</Botao>
             { isModalOpen && <ModalForm onSubmit={enviarTarefa} onclose={fecharModal} /> }
-        </div>
+        </PetContainer>
     )
 }
 
+const PetContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+
+    img {
+        max-width: 70%;
+        height: 80%;
+    }
+`
