@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 export default function Pet () {
 
+
     
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [tarefas, setTarefas] = useState([]);
@@ -48,10 +49,12 @@ export default function Pet () {
     }
 
     return (
-        <div className='pet_container'>
+        <PetContainer>
+
             <img src={PetImage}/>
             <Botao onClick={criarTarefa} >Criar Tarefa</Botao>
             { isModalOpen && <ModalForm onSubmit={enviarTarefa} onclose={fecharModal} /> }
         </div>
     )
 }
+

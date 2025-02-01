@@ -5,8 +5,6 @@ import ToLink from "../ToLink";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-//import './cardTarefa.css';
-
 const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -81,7 +79,6 @@ const CardButton = styled.div`
     }
 `
 
-
 export default function CardTarefa({}) {
 
     const [tarefas, seTarefas] = useState([]);
@@ -102,7 +99,6 @@ export default function CardTarefa({}) {
         carregarTarefas();
     },[]);
     
-
     return (
         <CardContainer>
             <CardContent>
@@ -122,10 +118,6 @@ export default function CardTarefa({}) {
                     )
                     }
                     
-                    {/* <Tarefa textLabel={"Curso JS"} name={"tarefa_1"} tag={"programação"} tempo={"01:00"} cor={'--details'}/>
-                    <Tarefa textLabel={"Caminhada"} name={"tarefa_2"} tag={"exercício"} tempo={"00:30"} cor={'--destaque'}/>
-                    <Tarefa textLabel={"Leitura"} name={"tarefa_3"} tag={"leitura"} tempo={"00:20"} cor={'--roxo-destaque'}/>
-                    <Tarefa textLabel={"Limpeza"} name={"tarefa_4"} tag={"casa"} tempo={"00:20"} cor={'--tag-clara'}/> */}
                     
                 </ContentTasks>
                 <Historico>
@@ -138,15 +130,3 @@ export default function CardTarefa({}) {
         </CardContainer>
     )
 }
-
-// useEffect((idUser) => {
-//     axios.get(`http://localhost:5175/api/tarefa${idUser}`)
-//         .then(resposta => {
-//             console.log(resposta);
-            
-//         })
-//         .catch(erro => {
-//             console.log(erro);
-            
-//         })
-// }, [])
