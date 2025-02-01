@@ -109,7 +109,7 @@ export default function CardTarefa({}) {
                         <Tarefa
                             key={tarefa.idTarefa}
                             textLabel={tarefa.nome}
-                            tag={tarefa.idCategoria}
+                            tag={tarefa.categoria}
                             tempo={tarefa.tempo}
                             cor={'--details'}
                         />
