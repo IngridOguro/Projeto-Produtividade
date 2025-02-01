@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://sqpets-backend.onrender.com',
+        target: 'http://localhost:5175',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }

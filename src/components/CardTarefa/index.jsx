@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Botao from "../Botao";
 import Tarefa from "../Tarefa";
 import ToLink from "../ToLink";
-import { getTarefas } from "../../Services/api";
-//import './cardTarefa.css';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const CardContainer = styled.div`
     display: flex;
@@ -11,13 +11,13 @@ const CardContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;    
-    height: auto;
     padding: 1.25rem 0 2rem 0;
     border: 4px solid #87C7CF;
     border-radius: 10px;
     background-color: ${props => props.theme['--fundo-modal']};
     box-sizing: border-box;
     text-align: center;
+
     @media screen and (max-width: 768px) {
         padding: 1rem;
         margin-bottom: 3rem;
@@ -57,6 +57,7 @@ const ContentTasks = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1.25rem;
+    overflow: scroll;
 `
 const Historico = styled.div`
     text-align: right;
@@ -78,29 +79,45 @@ const CardButton = styled.div`
     }
 `
 
-function carregarTarefas () {
-    const carregarTarefa = { nome: "abubaba" };
-    getTarefas(carregarTarefa)
-        .then(resposta => {
-            console.log("Sucesso", resposta.data);
-            
-        })
-        .catch(erro => {
-            console.log("erro ao criar a tarefa:", erro);
-            
-        });
-}
+export default function CardTarefa({}) {
 
-export default function CardTarefa() {
+    const [tarefas, seTarefas] = useState([]);
+
+    useEffect(() => {
+        const carregarTarefas = async() => {
+            try {
+                const resposta = await fetch(`https://sqpets-backend.onrender.com/api/tarefa/e1b7f8a6-12e7-4a7e-b6d3-021d676d9a68`);
+                if(resposta.ok) {
+                    const dados = await resposta.json();
+                    seTarefas(dados.data);
+                }
+            } catch(error) {
+                console.log(error);
+            }
+        }
+
+        carregarTarefas();
+    },[]);
+    
     return (
         <CardContainer>
             <CardContent>
             <TituloCard>Tarefas de hoje</TituloCard>
                 <ContentTasks>
-                <Tarefa textLabel={"Curso JS"} name={"tarefa_1"} tag={"programação"} tempo={"01:00"} cor={'--details'}/>
-                    <Tarefa textLabel={"Caminhada"} name={"tarefa_2"} tag={"exercício"} tempo={"00:30"} cor={'--destaque'}/>
-                    <Tarefa textLabel={"Leitura"} name={"tarefa_3"} tag={"leitura"} tempo={"00:20"} cor={'--roxo-destaque'}/>
-                    <Tarefa textLabel={"Limpeza"} name={"tarefa_4"} tag={"casa"} tempo={"00:20"} cor={'--tag-clara'}/>
+                    
+                    {tarefas.length > 0 ? (tarefas.map((tarefa) => (
+                        <Tarefa
+                            key={tarefa.idTarefa}
+                            textLabel={tarefa.nome}
+                            tag={tarefa.idCategoria}
+                            tempo={tarefa.tempo}
+                            cor={'--details'}
+                        />
+                    ))) : (
+                        <p>Sem tarefas cadastradas</p>
+                    )
+                    }
+                    
                     
                 </ContentTasks>
                 <Historico>
